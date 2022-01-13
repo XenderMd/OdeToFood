@@ -1,2 +1,7 @@
 src/OdeToFood/bin/
 src/OdeToFood/obj/
+src/OdeToFood.Core/bin/
+src/OdeToFood.Core/obj/
+src/OdeToFood.Data/bin/
+src/OdeToFood.Data/obj/
+.vs/
