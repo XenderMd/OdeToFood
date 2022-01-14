@@ -17,33 +17,43 @@ namespace OdeToFood.Pages.Restaurants
 
         [BindProperty]
         public Restaurant Restaurant { get; set; }
-        public IEnumerable<SelectListItem> Cuisines{get;set;}
+        public IEnumerable<SelectListItem> Cuisines { get; set; }
         public EditModel(IRestaurantData restaurantData, IHtmlHelper htmlHelper)
         {
             this.restaurantData = restaurantData;
             this.htmlHelper = htmlHelper;
         }
-        
-        public IActionResult OnGet(int restaurantId)
+
+        public IActionResult OnGet(int? restaurantId)
         {
-            Restaurant = restaurantData.GetByID(restaurantId);
             Cuisines = htmlHelper.GetEnumSelectList<CuisineType>();
+
+            if (restaurantId.HasValue)
+            {
+                Restaurant = restaurantData.GetByID(restaurantId.Value);
+            }
+            else { Restaurant = new Restaurant(); };
+
             if (Restaurant == null)
             {
                 return RedirectToPage("./NotFound");
             };
+
             return Page();
         }
 
-        public IActionResult OnPost(){
+        public IActionResult OnPost()
+        {
 
-            if(ModelState.IsValid){
+            if (ModelState.IsValid)
+            {
                 Restaurant = restaurantData.Update(Restaurant);
                 restaurantData.Commit();
+                return RedirectToPage("./Detail", new { restaurantID = Restaurant.ID });
             };
 
             Cuisines = htmlHelper.GetEnumSelectList<CuisineType>();
-            
+
             return Page();
         }
     }
