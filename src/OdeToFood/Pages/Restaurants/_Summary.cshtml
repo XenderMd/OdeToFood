@@ -1,17 +1,19 @@
 ﻿@using OdeToFood.Core
 @model Restaurant
 
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3>@Model.Name</h3>
+<div class="card card-summary">
+    <div class="card-header">
+        <h3 class="card-title">@Model.Name</h3>
     </div>
-    <div class="panel-body">
-        <span>Location: @Model.Location</span>
-        <span>Cuisine: @Model.Cuisine</span>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Location: @Model.Location</li>
+            <li class="list-group-item">Cuisine: @Model.Cuisine</li>
+        </ul>
     </div>
-    <div class="panel-footer">
-        <a class="btn btn-details" asp-page="./Detail" asp-route-restaurantID="@Model.ID">Details</a>
-        <a class="btn btn-details" asp-page="./Edit" asp-route-restaurantID="@Model.ID">Edit</a>
-        <a class="btn btn-danger" asp-page="./Delete" asp-route-restaurantID="@Model.ID">Delete</a>
+    <div class="card-footer">
+        <a asp-page="./Detail" asp-route-restaurantID="@Model.ID"><i class="fas fa-info-circle"></i></a>
+        <a asp-page="./Edit" asp-route-restaurantID="@Model.ID"><i class="far fa-edit"></i></a>
+        <a asp-page="./Delete" asp-route-restaurantID="@Model.ID"><i class="fas fa-trash-alt"></i></a>
     </div>
 </div>

@@ -12,28 +12,17 @@
             <input type = "search" class = "form-control" asp-for="SearchTerm"/>
             <span class = "input-group-btn">
                 <button class = "btn btn-default">
-                    Search
+                   <i class="fas fa-search"></i> Search
                 </button>
             </span>
         </div>
     </div>
 </form>
 
-<table class="table">
-    @foreach (var restaurant in Model.Restaurants)
-    {
-    <tr>
-        <td>@restaurant.Name</td>
-        <td>@restaurant.Location</td>
-        <td>@restaurant.Cuisine</td>
-        <td>
-            <a class="btn btn-details" asp-page="./Detail" asp-route-restaurantID = "@restaurant.ID">Details</a>
-            <a class="btn btn-details" asp-page="./Edit" asp-route-restaurantID = "@restaurant.ID">Edit</a>
-            <a class="btn btn-danger" asp-page="./Delete" asp-route-restaurantID = "@restaurant.ID">Delete</a>
-        </td>
-    </tr>
-    }
-</table>
+
+@foreach (var restaurant in Model.Restaurants){   
+    <partial name="_Summary" model="restaurant"/>
+}
 
 <a class="btn btn-primary" asp-page="./Edit">Create New</a>
 
