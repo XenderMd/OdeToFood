@@ -28,6 +28,13 @@ a {
   border-bottom-color: #1861ac;
 }
 
+.btn-del{
+  margin-left:0.5rem;
+  border-radius: 0rem;
+  border-left-color: #cc1111;
+  border-bottom-color: #cc1111;
+}
+
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
   background-color: #1b6ec2;
