@@ -5,3 +5,4 @@ src/OdeToFood.Core/obj/
 src/OdeToFood.Data/bin/
 src/OdeToFood.Data/obj/
 .vs/
+src/OdeToFood/node_modules/
