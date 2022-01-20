@@ -28,6 +28,7 @@ namespace OdeToFood.Pages.Restaurants
         {   
             Message = config["Message"];
             Restaurants = restaurantData.GetRestaurantsByName(SearchTerm);
+            // Console.WriteLine($"Search term is {SearchTerm}");
         }
     }
 }
